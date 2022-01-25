@@ -5,7 +5,7 @@ import { apiUrl } from "./config";
 export const getProduct = async (id) => {
   try {
     const response = await axios({
-      url: `${apiUrl} +"/api/products/"+ ${id}`,
+      url: `${apiUrl}/api/products/${id}`,
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -17,6 +17,8 @@ export const getProduct = async (id) => {
     return response.data;
   } catch (err) {
     console.log(err);
-    return { err };
+    return { error: err.response.data.message || err.message };
   }
 };
+
+export default getProduct;

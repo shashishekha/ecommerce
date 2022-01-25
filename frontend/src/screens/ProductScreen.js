@@ -1,8 +1,15 @@
+/* eslint-disable func-names */
 import { getProduct } from "../api";
 import { parseRequestUrl } from "../utils";
 import Rating from "../components/Rating";
 
 const ProductScreen = {
+  after_render: () => {
+    const request = parseRequestUrl();
+    document.getElementById("add-button").addEventListener("click", () => {
+      document.location.hash = `/cart/${request.id}`;
+    });
+  },
   render: async () => {
     const request = parseRequestUrl();
     const product = await getProduct(request.id);
@@ -56,13 +63,12 @@ const ProductScreen = {
                         </li>
                         <li>
                           <button  id="add-button" class=" fw primary">Add to Cart </div>
-                        
-                        </li>
                         </ul>
                     
                     </div>
                 </div>
                 </div>`;
+    // }
   },
 };
 export default ProductScreen;

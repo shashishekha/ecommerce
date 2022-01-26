@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 /* eslint-disable prefer-arrow-callback */
 /* eslint-disable vars-on-top */
 /* eslint-disable import/order */
@@ -15,22 +16,9 @@ const bodyParser = require("body-parser");
 const data = require("./data");
 const express = require("express");
 
-// const Router  = require("express");
-
 const config = require("./config");
 const userRouter = require("./routers/userRouter");
-// mongoose
-//   .connect(config.MONGODB_URL, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true,
-//   })
-//   .then(() => {
-//     console.log("Connected to mongodb.");
-//   })
-//   .catch((error) => {
-//     console.log(error.reason);
-//   });
+const orderRouter = require("./routers/orderRouter");
 
 mongoose.connect(config.MONGODB_URL, {
   useNewUrlParser: true,
@@ -48,6 +36,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/api/users", userRouter);
+app.use("/api/products", orderRouter);
 
 app.get("/api/products", (req, res) => {
   res.send(data.products);
@@ -61,10 +50,12 @@ app.get("/api/products/:id", (req, res) => {
     res.status(404).send({ message: "Product Not Found!" });
   }
 });
+
 app.use((err, req, res, next) => {
   const status = err.name && err.name === "ValidationError" ? 400 : 500;
   res.status(status).send({ message: err.message });
 });
+
 app.listen(5000, () => {
   // eslint-disable-next-line no-console
   console.log("serve at http://localhost:5000");

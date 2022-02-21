@@ -42,7 +42,7 @@ const SigninScreen = {
             <input type="password" name="password" id="password" />
           </li>
           <li>
-            <button type="submit" class="primary">Signin</button>
+            <button type="submit" class=" fw primary">Signin</button>
           </li>
           <li>
             <div>

@@ -7,7 +7,6 @@ import { hideLoading, showLoading } from "../utils";
 
 const HomeScreen = {
   render: async () => {
-    // const { products } = data;
     showLoading();
     const response = await axios({
       url: "http://localhost:5000/api/products",
@@ -31,7 +30,7 @@ const HomeScreen = {
                         <img src="${product.image}" alt="${product.name}" />
                     </a>
                     <div class="product-name">
-                        <a href="/#/product/1">
+                        <a href="/#/product/${product._id}">
                          ${product.name}
                       </a>
                     </div>
@@ -45,7 +44,7 @@ const HomeScreen = {
                     ${product.brand}
                     </div>
                     <div class ="product-price">
-                    $${product.price}
+                    ₹${product.price}
                     </div>
 
                 </div>

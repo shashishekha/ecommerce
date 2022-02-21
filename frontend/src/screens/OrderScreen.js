@@ -1,5 +1,5 @@
-/* eslint-disable no-use-before-define */
 /* eslint-disable import/named */
+/* eslint-disable no-use-before-define */
 import {
   parseRequestUrl,
   showLoading,
@@ -46,7 +46,7 @@ const handlePayment = (clientId, totalPrice) => {
             {
               amount: {
                 total: totalPrice,
-                currency: "USD",
+                currency: "RUPEES",
               },
             },
           ],

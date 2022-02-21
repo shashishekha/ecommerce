@@ -34,7 +34,6 @@ const ProfileScreen = {
     if (!name) {
       document.location.hash = "/";
     }
-    // const orders = await getMyOrders();
     return `
     <div class="content profile">
       <div class="profile-info">
@@ -57,7 +56,7 @@ const ProfileScreen = {
             <input type="password" name="password" id="password" />
           </li>
           <li>
-            <button type="submit" class="primary">Update</button>
+            <button type="submit" class=" fw primary">Update</button>
           </li>
           <li>
           <button type="button" id="signout-button" >Sign Out</button>
@@ -65,22 +64,6 @@ const ProfileScreen = {
         </ul>
       </form>
     </div>
-      </div>
-      <div class="profile-orders">
-      <h2>Order History</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>ORDER ID</th>
-              <th>DATE</th>
-              <th>TOTAL</th>
-              <th>PAID</th>
-              <th>DELIVERED</th>
-              <th>ACTIONS</th>
-            </tr>
-          </thead>
-       
-        </table>
       </div>
     </div>
     

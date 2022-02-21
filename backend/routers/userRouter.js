@@ -2,9 +2,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable import/order */
 /* eslint-disable import/no-unresolved */
-// const expressAsyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
-const { generateToken, isAuth } = require("../utils");
 
 const express = require("express");
 const expressAsyncHandler = require("express-async-handler");
@@ -45,7 +43,6 @@ userRouter.post(
         name: signinUser.name,
         email: signinUser.email,
         isAdmin: signinUser.isAdmin,
-        // token: generateToken(signinUser),
       });
     }
   })
@@ -70,7 +67,6 @@ userRouter.post(
         name: createdUser.name,
         email: createdUser.email,
         isAdmin: createdUser.isAdmin,
-        // token: generateToken(createdUser),
       });
     }
   })
@@ -78,7 +74,6 @@ userRouter.post(
 
 userRouter.put(
   "/:id",
-  // isAuth,
   expressAsyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id);
 
@@ -96,7 +91,6 @@ userRouter.put(
         name: updatedUser.name,
         email: updatedUser.email,
         isAdmin: updatedUser.isAdmin,
-        // token: generateToken(updatedUser),
       });
     }
   })

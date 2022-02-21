@@ -53,7 +53,7 @@ const RegisterScreen = {
             <input type="password" name="repassword" id="repassword" />
           </li>
           <li>
-            <button type="submit" class="primary">Register</button>
+            <button type="submit" class=" fw primary">Register</button>
           </li>
           <li>
             <div>
